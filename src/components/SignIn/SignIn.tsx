@@ -1,5 +1,5 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
+import Cart from '../Cart/Cart';
 
 type Props = {}
 
@@ -8,6 +8,10 @@ interface SignInProps {
   }
 
 const SignIn = (prop: SignInProps) => {
+
+
+  
+
   return (
     <div className='container-fluid d-flex'>
 
@@ -23,6 +27,8 @@ const SignIn = (prop: SignInProps) => {
             Inci
         </Link>
 
+ {/*Cart*/} 
+ <Cart/>
         
     </div>
   )

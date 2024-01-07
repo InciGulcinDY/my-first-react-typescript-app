@@ -14,6 +14,8 @@ class ProductService{
     {
         return axios.get<ProductModel>(API_URL + "/" + id);
     }
+
+    
 }
 
 export default new ProductService();

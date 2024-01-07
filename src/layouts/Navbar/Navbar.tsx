@@ -23,7 +23,7 @@ const Navbar = (props: Props) => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container-fluid">
           {/*Navbar Buttons*/}
-          <div className="container-fluid col-12 col-md-4">
+          <div className="container-fluid col-12 col-md-5">
             <Link className="navbar-brand btn" to="/">
               Home
             </Link>
@@ -74,10 +74,11 @@ const Navbar = (props: Props) => {
             </form>
           </div>
 
-          {/*Customer*/}
+          {/*Client*/}
           <div className="col-12 col-md-4">
             {isAuthenticated ? <SignIn signOut={handleSignOut}/> : <SignOut signIn={handleSignIn}/>}
           </div>
+
         </div>
       </nav>
     </div>

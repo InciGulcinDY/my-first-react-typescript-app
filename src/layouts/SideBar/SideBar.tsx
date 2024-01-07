@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "../../components/ProductCard/ProductCard";
+import { Link } from "react-router-dom";
 import { ProductModel } from "../../models/responses/ProductModel";
 import ProductService from "../../services/ProductService";
-import SideBar from "../../layouts/SideBar/SideBar";
 
-type Props = {};
+type SideBarProps = {};
 
-const Homepage = (props: Props) => {
+const SideBar = (props: SideBarProps) => {
   const [products, setProducts] = useState<ProductModel[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
 
   useEffect(() => {
     fetchProducts();
@@ -20,20 +20,16 @@ const Homepage = (props: Props) => {
   };
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-      <div className="col-md-3">
-      <SideBar></SideBar>
-      </div>
-        
+    <div>
+      <ul className="list-group">
         {products.map((product) => (
-          <div key={product.id} className="col-lg-3 col-md-6 col-12 mb-5">
-            <ProductCard product={product} />
-          </div>
+          <Link to={"/"} className="list-group-item" key={product.id}>
+            {product.category}
+          </Link>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
 
-export default Homepage;
+export default SideBar;
