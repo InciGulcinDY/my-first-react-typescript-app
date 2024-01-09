@@ -22,15 +22,19 @@ const Homepage = (props: Props) => {
   return (
     <div className="container-fluid">
       <div className="row">
-      <div className="col-md-3">
-      <SideBar></SideBar>
-      </div>
-        
-        {products.map((product) => (
-          <div key={product.id} className="col-lg-3 col-md-6 col-12 mb-5">
-            <ProductCard product={product} />
-          </div>
-        ))}
+
+        <div className="col-md-3 sticky-top">
+          <SideBar></SideBar>
+        </div>
+
+
+        <div className="col-md-9 row">
+          {products.map((product) => (
+            <div key={product.id} className="col-lg-3 col-md-6 col-12 mb-5">
+              <ProductCard product={product} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

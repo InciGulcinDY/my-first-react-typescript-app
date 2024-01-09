@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import SignIn from "../../components/SignIn/SignIn";
 import SignOut from "../../components/SignOut/SignOut";
+import { Dropdown } from "react-bootstrap";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+  function handleSignIn() {
+    setIsAuthenticated(true);
+  }
 
-    function handleSignIn() {
-        setIsAuthenticated(true);
-    }
-
-    function handleSignOut() {
-        setIsAuthenticated(false);
-    }
+  function handleSignOut() {
+    setIsAuthenticated(false);
+  }
 
   return (
     <div className="NavbarLayout">
@@ -27,9 +27,19 @@ const Navbar = (props: Props) => {
             <Link className="navbar-brand btn" to="/">
               Home
             </Link>
-            <Link className="navbar-brand btn" to="/">
-              All Products
-            </Link>
+            <div className="navbar-brand btn">
+            <Dropdown>
+              <Dropdown.Toggle className="btn-light fs-5" variant="secondary" id="dropdown-basic">
+                Products
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="/productadd">Product Add</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            </div>
             <Link className="navbar-brand btn" to="/">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,9 +86,12 @@ const Navbar = (props: Props) => {
 
           {/*Client*/}
           <div className="col-12 col-md-4">
-            {isAuthenticated ? <SignIn signOut={handleSignOut}/> : <SignOut signIn={handleSignIn}/>}
+            {isAuthenticated ? (
+              <SignIn signOut={handleSignOut} />
+            ) : (
+              <SignOut signIn={handleSignIn} />
+            )}
           </div>
-
         </div>
       </nav>
     </div>

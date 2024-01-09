@@ -8,7 +8,7 @@ const Cart = (props: Props) => {
 
   return (
     <div>
-      <Link className="navbar-brand btn position-relative me-1" to="/cart">
+      <Link className="navbar-brand btn position-relative me-1" to="/cartdetail">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
