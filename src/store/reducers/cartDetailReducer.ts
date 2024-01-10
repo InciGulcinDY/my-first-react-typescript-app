@@ -1,12 +1,8 @@
 import { ProductModel } from '../../models/responses/ProductModel'
-import { RootState } from '../ConfigureStore'
-import { AddToCartAction, CartActions } from '../actions/cartActions'
+import { CartActions } from '../actions/cartActions'
 import { CartProductState, initialCartDetailState } from '../initialValues/cartDetails'
 
 type Props = {}
-
-//Reach the state:?????
-export const getCartDetail = (state: RootState) => state.cartDetail.cartProduct
 
 
 const cartDetailReducer = (state: CartProductState = initialCartDetailState, action: CartActions): CartProductState => {

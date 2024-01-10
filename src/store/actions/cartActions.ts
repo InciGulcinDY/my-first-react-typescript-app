@@ -1,6 +1,5 @@
 import { ProductModel } from "../../models/responses/ProductModel";
 
-
 // ACTION TYPES:
 export interface AddToCartAction {
   type: "ADD_TO_CART";
@@ -23,6 +22,7 @@ export interface IncreasingCartNumber {
 }
 
 // Cart Actions Union Type
+
 export type CartActions = AddToCartAction | RemoveFromCartAction | ClearCartAction | IncreasingCartNumber;
 
 // ACTION CREATERS:
